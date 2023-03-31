@@ -4,8 +4,61 @@
 .layout {
     height: 100%;
 }
+.login-page {
+    width: 40%;
+    margin: 4rem auto;
+}
 .nav {
     height: 10%;
     background-color: rgb(105 103 121 / 12%);
     backdrop-filter: blur(16px) saturate(180%);
 }
+form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    row-gap: 2rem;
+}
+input {
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    border: none;
+}
+input:focus {
+    outline: none;
+    border: 3px solid #8e7aff;
+}
+
+.input-field {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.c-input {
+    width: 100%;
+}
+.c-input:focus ~ .placeholder,
+.c-input:not(:placeholder-shown) ~ .placeholder {
+    transform: translateY(-40px);
+}
+.placeholder {
+    transition: transform 200ms;
+    position: absolute;
+    pointer-events: none;
+    padding-left: 0.75rem;
+    color: #b1b7d1;
+    font-size: small;
+}
+.c-input:focus ~ .placeholder {
+    color: #b1b7d1;
+    font-weight: 700;
+    font-size: medium;
+}
+.btn-primary {
+    border: none;
+    background: #5748ad;
+    padding-block: 0.75rem;
+    border-radius: 0.75rem;
+    color: #f8faff;
+}
+//F0544F, F25F5C, #CCF5AC #9CEC5B #087E8B
