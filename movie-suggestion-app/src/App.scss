@@ -4,9 +4,15 @@
 .layout {
     height: 100%;
 }
-.login-page {
+.auth-page {
+    display: flex;
+    flex-direction: column;
+
     width: 40%;
     margin: 4rem auto;
+}
+.auth-form {
+    margin-top: 2rem;
 }
 .nav {
     height: 10%;
@@ -62,3 +68,10 @@ input:focus {
     color: #f8faff;
 }
 //F0544F, F25F5C, #CCF5AC #9CEC5B #087E8B
+a {
+    color: #f8faff;
+}
+.auth-message {
+    color: #b1b7d1;
+    margin-top: 1rem;
+}
