@@ -5,6 +5,7 @@ import { Input } from './form/Input';
 
 const defaultFormFields = {
     username: '',
+    email: '',
     password: '',
 };
 
@@ -27,6 +28,15 @@ export default function Login() {
                 <Input
                     className="c-input"
                     labelcn="placeholder"
+                    type="email"
+                    name="email"
+                    value={formFields.email}
+                    placeholder=" "
+                    onChange={handleInputChange}
+                />
+                <Input
+                    className="c-input"
+                    labelcn="placeholder"
                     type="password"
                     name="password"
                     value={formFields.password}
@@ -35,11 +45,11 @@ export default function Login() {
                 />
 
                 <button className="btn-primary" type="submit">
-                    Log in
+                    Sign up
                 </button>
             </Form>
             <div className="auth-message">
-                Don't have an account? <Link to="/signup">Sign up</Link>
+                Already have an account? <Link to="/login">Login</Link>
             </div>
         </div>
     );
