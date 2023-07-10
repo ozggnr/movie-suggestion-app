@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Form } from './form/Form';
-import { Input } from './form/Input';
+import { Form } from '../components/form/Form';
+import { Input } from '../components/form/Input';
 
 const defaultFormFields = {
     username: '',
@@ -9,7 +9,7 @@ const defaultFormFields = {
     password: '',
 };
 
-export default function Login() {
+export default function Signup() {
     const [formFields, setFormFields] = useState(defaultFormFields);
     console.log(formFields);
     return (
@@ -18,6 +18,7 @@ export default function Login() {
             <Form className="auth-form" onSubmit={handleSubmit}>
                 <Input
                     className="c-input"
+                    label="Username"
                     labelcn="placeholder"
                     type="text"
                     name="username"
@@ -27,6 +28,7 @@ export default function Login() {
                 />
                 <Input
                     className="c-input"
+                    label="Email"
                     labelcn="placeholder"
                     type="email"
                     name="email"
@@ -36,6 +38,7 @@ export default function Login() {
                 />
                 <Input
                     className="c-input"
+                    label="Password"
                     labelcn="placeholder"
                     type="password"
                     name="password"

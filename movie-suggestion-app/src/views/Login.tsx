@@ -1,10 +1,11 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Form } from './form/Form';
-import { Input } from './form/Input';
+import { Form } from '../components/form/Form';
+import { Input } from '../components/form/Input';
 
 const defaultFormFields = {
     username: '',
+    email: '',
     password: '',
 };
 
@@ -17,6 +18,7 @@ export default function Login() {
             <Form className="auth-form" onSubmit={handleSubmit}>
                 <Input
                     className="c-input"
+                    label="Username"
                     labelcn="placeholder"
                     type="text"
                     name="username"
@@ -24,8 +26,19 @@ export default function Login() {
                     placeholder=" "
                     onChange={handleInputChange}
                 />
+                {/* <Input
+                    className="c-input"
+                    label="Email"
+                    labelcn="placeholder"
+                    type="email"
+                    name="email"
+                    value={formFields.email}
+                    placeholder=" "
+                    onChange={handleInputChange}
+                /> */}
                 <Input
                     className="c-input"
+                    label="Password"
                     labelcn="placeholder"
                     type="password"
                     name="password"
@@ -51,6 +64,13 @@ export default function Login() {
     function handleSubmit(event: FormEvent) {
         event.preventDefault();
         event.stopPropagation();
-        console.log(formFields);
+        fetch('http://127.0.0.1:8000/api/login/', {
+            method: 'POST',
+            body: JSON.stringify(formFields),
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+        }).then((data) => console.log(data));
     }
 }
