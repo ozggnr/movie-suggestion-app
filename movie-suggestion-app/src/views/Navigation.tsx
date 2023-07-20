@@ -22,28 +22,36 @@ export default function Navigation() {
         };
     }, []);
     return (
-        <nav>
-            <ul className="nav-menu-left">
-                <li>Movie App Logo</li>
-                <li>Movies</li>
-                <li>TV Shows</li>
-            </ul>
-            <div className="nav-menu-right">
-                {openSearchBar ? (
-                    <SearchBar
-                        searchRef={searchRef}
-                        className="collapse"
-                        onClick={handleSubmitSearch}
-                        onChange={handleSearchChange}
-                    />
-                ) : (
-                    <FontAwesomeIcon icon={faMagnifyingGlass} onClick={() => setOpenSearchBar(true)} />
-                )}
-                <Link to="/signup">Signup</Link>
-                {/* {isAuth ? <Link to="/logout">Logout</Link> : <Link to="/login"> Login</Link>} */}
-            </div>
+        <>
+            <nav>
+                <ul className="nav-menu-left">
+                    <li>
+                        <Link to="/">Movie App Logo</Link>
+                    </li>
+                    <li>
+                        <Link to="/movies">Movies</Link>
+                    </li>
+                    <li>
+                        <Link to="/tvshows">TV Shows</Link>
+                    </li>
+                </ul>
+                <div className="nav-menu-right">
+                    {openSearchBar ? (
+                        <SearchBar
+                            searchRef={searchRef}
+                            className="collapse"
+                            onClick={handleSubmitSearch}
+                            onChange={handleSearchChange}
+                        />
+                    ) : (
+                        <FontAwesomeIcon icon={faMagnifyingGlass} onClick={() => setOpenSearchBar(true)} />
+                    )}
+                    <Link to="/signup">Signup</Link>
+                    {/* {isAuth ? <Link to="/logout">Logout</Link> : <Link to="/login"> Login</Link>} */}
+                </div>
+            </nav>
             <Outlet />
-        </nav>
+        </>
     );
     function handleSubmitSearch() {
         console.log(searchInput);
