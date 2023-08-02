@@ -1,7 +1,6 @@
-.app {
-    height: 100vh;
-}
 .homepage {
+    display: flex;
+    flex-direction: column;
     height: 100%;
 }
 .auth-page {
@@ -95,7 +94,9 @@ input {
 //F0544F, F25F5C, #CCF5AC #9CEC5B #087E8B
 a {
     color: #f8faff;
+    text-decoration: none;
 }
+
 .auth-message {
     color: #b1b7d1;
     margin-top: 1rem;
@@ -123,12 +124,15 @@ button {
     display: flex;
     align-items: center;
     background: #5748ad;
+    cursor: pointer;
 }
 .ai-search {
     display: flex;
     flex-direction: column;
+    height: 100%;
     align-items: center;
     width: 80%;
+    transform: translateY(30%);
     margin: 0 auto;
     column-gap: 0.2rem;
 }
@@ -136,4 +140,7 @@ button {
 .icon {
     background: none;
     background-color: #f8faff;
+}
+.card {
+    display: flex;
 }

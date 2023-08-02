@@ -1,11 +1,11 @@
-import { useEffect, useState, useContext, useRef, ChangeEvent } from 'react';
+import { useEffect, useState, useContext, useRef, ChangeEvent, PropsWithChildren } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SearchBar from '../components/SearchBar';
 import { getTargetMovies } from '../services/movieService';
 
-export default function Navigation() {
+export default function Navigation({ children }: PropsWithChildren) {
     const [openSearchBar, setOpenSearchBar] = useState(false);
     const [searchInput, setSearchInput] = useState('');
     const searchRef = useRef<HTMLDivElement>(null);
@@ -50,7 +50,7 @@ export default function Navigation() {
                     {/* {isAuth ? <Link to="/logout">Logout</Link> : <Link to="/login"> Login</Link>} */}
                 </div>
             </nav>
-            <Outlet />
+            {children}
         </>
     );
     function handleSubmitSearch() {
