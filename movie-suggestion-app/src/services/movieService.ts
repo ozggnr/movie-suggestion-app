@@ -36,6 +36,5 @@ export async function getTargetMovies(movieText: string) {
         user_input: movieText,
         top_k: 5,
     };
-    console.log('here', moviePrompt);
-    return fetcher({ url: 'http://127.0.0.1:8000/movie-match/', method: 'POST', body: moviePrompt });
+    return fetcher({ url: 'http://127.0.0.1:8001/movie/ai/suggestion/', method: 'POST', body: moviePrompt });
 }
