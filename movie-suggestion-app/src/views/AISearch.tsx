@@ -29,19 +29,21 @@ export default function AISearch() {
         <div className="ai-search">
             <h2>{text}</h2>
             <SearchBar placeholder="what do you want to watch?" onChange={handleSearchChange} onClick={handleSearch} />
-            {Object.values(suggestedMovies).map((movie: Movie) => {
-                console.log('movie', movie);
-                return (
-                    <Card>
-                        <img src={TMDB_POSTER_PATH + movie.poster_path} alt={movie.title} />
-                        <div>{movie.title}</div>
-                        <div>{movie.release_date}</div>
-                        <div>{movie.overwiew}</div>
-                        <div>{movie.original_langiage}</div>
-                        <div>{movie.title}</div>
-                    </Card>
-                );
-            })}
+            <div className="ai-search__results">
+                {Object.values(suggestedMovies).map((movie: Movie) => {
+                    console.log('movie', movie);
+                    return (
+                        <Card>
+                            <img src={TMDB_POSTER_PATH + movie.poster_path} alt={movie.title} />
+                            <div>{movie.title}</div>
+                            <div>{movie.release_date}</div>
+                            <div>{movie.overwiew}</div>
+                            <div>{movie.original_langiage}</div>
+                            <div>{movie.title}</div>
+                        </Card>
+                    );
+                })}
+            </div>
         </div>
     );
     function handleSearch() {
